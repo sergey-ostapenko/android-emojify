@@ -34,6 +34,8 @@ public final class Emoji extends AbstractEmoji implements Parcelable {
 	
 	private String decimalSurrogateHtml;
 
+	private String emoticons;
+
 	protected Emoji(Parcel in) {
 		emoji = in.readString();
 		aliases = in.createStringArrayList();
@@ -45,6 +47,7 @@ public final class Emoji extends AbstractEmoji implements Parcelable {
 		decimalHtmlShort = in.readString();
 		hexHtmlShort = in.readString();
 		decimalSurrogateHtml = in.readString();
+		emoticons = in.readString();
 	}
 
 	public static final Creator<Emoji> CREATOR = new Creator<Emoji>() {
@@ -142,6 +145,14 @@ public final class Emoji extends AbstractEmoji implements Parcelable {
 		this.decimalSurrogateHtml = decimalSurrogateHtml;
 	}
 
+	public String getEmoticons() {
+		return emoticons;
+	}
+
+	public void setEmoticons(String emoticons) {
+		this.emoticons = emoticons;
+	}
+
 	public String getDecimalHtmlShort() {
 		return decimalHtmlShort;
 	}
@@ -194,5 +205,6 @@ public final class Emoji extends AbstractEmoji implements Parcelable {
 		dest.writeString(decimalHtmlShort);
 		dest.writeString(hexHtmlShort);
 		dest.writeString(decimalSurrogateHtml);
+		dest.writeString(emoticons);
 	}
 }

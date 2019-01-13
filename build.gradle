@@ -2,12 +2,12 @@
 
 buildscript {
     ext.versions = [
-        'compileSdk'    : 27,
-        'targetSdk'     : 27,
+        'compileSdk'    : 28,
+        'targetSdk'     : 28,
         'minSdk'        : 17,
         'versionCode'   : 7,
         'versionName'   : '0.1.7',
-        'buildTools'    : '27.0.3',
+        'buildTools'    : '28.0.3',
         'supportLibrary': '27.1.1'
     ]
     repositories {
@@ -16,7 +16,7 @@ buildscript {
         maven { url "https://maven.google.com" }
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:3.1.2'
+        classpath 'com.android.tools.build:gradle:3.2.1'
 
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files

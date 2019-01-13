@@ -7,6 +7,9 @@ import android.support.test.runner.AndroidJUnit4;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
+import io.wax911.emojify.EmojiManager;
+import io.wax911.emojify.EmojiUtils;
+
 import static org.junit.Assert.*;
 
 /**
@@ -22,5 +25,16 @@ public class ExampleInstrumentedTest {
         Context appContext = InstrumentationRegistry.getTargetContext();
 
         assertEquals("io.wax911.emojify", appContext.getPackageName());
+    }
+
+    @Test
+    public void readSmile() throws Exception {
+        // Context of the app under test.
+        Context appContext = InstrumentationRegistry.getTargetContext();
+        EmojiManager.initEmojiData(appContext);
+
+        String emojiString = "\uD83D\uDE00 with \uD83D\uDE04";
+        String result = EmojiUtils.shortCodify(emojiString);
+        assertEquals(true, result.contains(":)"));
     }
 }

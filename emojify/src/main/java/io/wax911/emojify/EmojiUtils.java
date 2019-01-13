@@ -219,8 +219,17 @@ public class EmojiUtils extends AbstractEmoji {
 		// so at this point, we iterate through all the emojis and replace with
 		// short codes
 		for (Emoji emoji : EmojiManager.emojiData)
-			emojifiedText = emojifiedText.replace(emoji.getEmoji(), ":" + emoji.getAliases().get(0) + ":");
+			emojifiedText =
+					emojifiedText.replace(emoji.getEmoji(), getEmoticon(emoji));
 		return emojifiedText;
+	}
+
+	private static String getEmoticon(Emoji emoji) {
+		String result = emoji.getEmoticons();
+		if (result == null)
+			result = ":" + emoji.getAliases().get(0) + ":";
+
+		return result;
 	}
 	
 	/**
